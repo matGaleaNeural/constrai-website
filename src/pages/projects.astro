@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ServiceGallery from '../components/ServiceGallery.astro';
+
+const featured = [
+  {
+    category: 'Private Properties',
+    name: 'Mdina H.O.C.',
+    img: '6a12d7d2-4b4b-43f5-8b87-00099aa8c1a9-683x1024.jpg',
+    desc: 'A prestigious private residence in the historic city of Mdina. Full interior finishing including liquid membrane waterproofing, floor tiling, wall tiling, plastering, and painting.',
+    works: ['Liquid Membrane', 'Floor Tiling', 'Wall Tiling', 'Internal Plastering', 'Painting'],
+    imgLeft: true,
+  },
+  {
+    category: 'Commercial',
+    name: 'Maria Rosa Wine Estate',
+    img: '701c3b93-939c-435b-880a-03c4533ab525.jpg',
+    desc: "A wine estate requiring durable, aesthetically refined exterior and interior finishing to complement the estate's premium brand identity.",
+    works: ['External Plastering', 'Floor Tiling', 'Painting', 'Facades'],
+    imgLeft: false,
+  },
+  {
+    category: 'Commercial',
+    name: 'Karrari Showroom',
+    img: 'IMG_20241117_134051-1.jpg',
+    desc: 'A high-end retail showroom requiring precision finishing to showcase luxury products in an immaculate environment.',
+    works: ['Floor Tiling', 'Wall Tiling', 'Internal Plastering', 'Painting'],
+    imgLeft: true,
+  },
+  {
+    category: 'Commercial',
+    name: 'Integra Wellness Centre',
+    img: 'IMG_20260406_110357-1024x768.jpg',
+    desc: 'A modern wellness facility demanding hygienic, durable finishes that meet the high standards of a health and wellness environment.',
+    works: ['Liquid Membrane', 'Bathrooms', 'Floor Tiling', 'Gypsum Partitions'],
+    imgLeft: false,
+  },
+  {
+    category: 'Commercial',
+    name: 'Fairdeal Furniture',
+    img: 'IMG_20250417_162131-1-1-e1776079766880.jpg',
+    desc: "Large-scale commercial fit-out for one of Malta's leading furniture retailers, requiring efficient delivery across a large floor plate.",
+    works: ['Floor Screeding', 'Floor Tiling', 'Internal Plastering', 'Painting'],
+    imgLeft: true,
+  },
+];
+
+const galleryImages = [
+  '/images/IMG_20240722_190220-scaled.jpg',
+  '/images/IMG_20240722_063716-1024x683.jpg',
+  '/images/IMG_20240509_143603-1-300x169.jpg',
+  '/images/IMG_20240722_172415-1.jpg',
+  '/images/IMG_20240722_180001.jpg',
+  '/images/IMG_20240804_141254-1-1024x683.jpg',
+  '/images/IMG_20241117_134051-1.jpg',
+  '/images/IMG_20250417_162131-1-1-e1776079766880.jpg',
+  '/images/IMG_20260406_110357-1024x768.jpg',
+  '/images/6a12d7d2-4b4b-43f5-8b87-00099aa8c1a9-683x1024.jpg',
+  '/images/701c3b93-939c-435b-880a-03c4533ab525.jpg',
+  '/images/IMG_20210424_115628-scaled.jpg',
+  '/images/IMG-20251108-WA0124.jpg',
+  '/images/IMG-20260303-WA0072-1.jpg',
+  '/images/IMG-20260126-WA0124-2-1024x461.jpg',
+  '/images/IMG-20251017-WA0076-1024x768.jpg',
+  '/images/IMG_20230113_134320-scaled.jpg',
+  '/images/MicrosoftTeams-image-81-1140x445-1-1024x400.jpg',
+];
+---
+
+<Layout title="Projects">
+  <Header />
+  <div style="padding-top:64px;">
+    <PageHero title="Projects" bgImage="/images/building.jpg" />
+
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container" style="max-width:800px;">
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem;">Projects</h2>
+        <p style="color:var(--color-muted);line-height:1.7;">
+          Every project we take on is an opportunity to demonstrate our commitment to precision and quality. From private residences to large commercial fit-outs, ConstrAI brings the same level of care and expertise to every engagement.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:0 0 5rem;background:var(--color-bg);">
+      <div class="container" style="display:flex;flex-direction:column;gap:5rem;">
+        {featured.map(proj => (
+          <div style={`display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;${proj.imgLeft ? '' : 'direction:rtl;'}`}>
+            <div style="direction:ltr;">
+              <img src={`/images/${proj.img}`} alt={proj.name} style="width:100%;border-radius:8px;object-fit:cover;max-height:420px;" />
+            </div>
+            <div style="direction:ltr;">
+              <span style="color:var(--color-accent);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;">{proj.category}</span>
+              <h2 style="color:#f0f4f8;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;margin:0.5rem 0 1rem;">{proj.name}</h2>
+              <p style="color:var(--color-muted);line-height:1.7;margin-bottom:1.5rem;">{proj.desc}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                {proj.works.map(w => (
+                  <span style="background:var(--color-surface-2);border:1px solid var(--color-border);color:var(--color-muted);font-size:0.75rem;padding:0.25rem 0.625rem;border-radius:3px;">{w}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <ServiceGallery images={galleryImages} />
+
+    <CTABanner bgImage="/images/1761921689217-985245443.jpg" />
+  </div>
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    .container > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      direction: ltr !important;
+    }
+  }
+</style>

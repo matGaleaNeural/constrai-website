@@ -1,0 +1,90 @@
+---
+interface Props {
+  images: string[];
+}
+const { images } = Astro.props;
+---
+
+<section class="section" style="background:var(--color-bg);">
+  <div class="container">
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      {images.map((src, i) => (
+        <button
+          data-index={i}
+          onclick={`openLightbox(${i})`}
+          style="border:none;padding:0;cursor:pointer;background:none;overflow:hidden;border-radius:4px;aspect-ratio:4/3;"
+        >
+          <img
+            src={src}
+            alt={`Gallery image ${i + 1}`}
+            style="width:100%;height:100%;object-fit:cover;transition:transform 300ms;display:block;"
+            onmouseover="this.style.transform='scale(1.04)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" style="
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(10,15,26,0.95);
+  align-items:center;justify-content:center;
+" onclick="if(event.target===this)closeLightbox()">
+  <button onclick="closeLightbox()" style="position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#f0f4f8;font-size:2rem;cursor:pointer;z-index:201;">✕</button>
+  <button onclick="prevImage()" style="position:absolute;left:1rem;background:none;border:none;color:#f0f4f8;font-size:2.5rem;cursor:pointer;z-index:201;">&#8249;</button>
+  <img id="lb-img" src="" alt="Lightbox image" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px;" />
+  <button onclick="nextImage()" style="position:absolute;right:1rem;background:none;border:none;color:#f0f4f8;font-size:2.5rem;cursor:pointer;z-index:201;">&#8250;</button>
+  <div style="position:absolute;bottom:1rem;color:var(--color-muted);font-size:0.875rem;">
+    <span id="lb-current">1</span> / <span id="lb-total">{images.length}</span>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 767px) {
+    #gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 480px) {
+    #gallery-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script define:vars={{ images }}>
+  let current = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCurrent = document.getElementById('lb-current');
+
+  window.openLightbox = function(index) {
+    current = index;
+    lbImg.src = images[current];
+    lbCurrent.textContent = String(current + 1);
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  window.prevImage = function() {
+    current = (current - 1 + images.length) % images.length;
+    lbImg.src = images[current];
+    lbCurrent.textContent = String(current + 1);
+  };
+
+  window.nextImage = function() {
+    current = (current + 1) % images.length;
+    lbImg.src = images[current];
+    lbCurrent.textContent = String(current + 1);
+  };
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display !== 'flex') return;
+    if (e.key === 'Escape') window.closeLightbox();
+    if (e.key === 'ArrowLeft') window.prevImage();
+    if (e.key === 'ArrowRight') window.nextImage();
+  });
+</script>

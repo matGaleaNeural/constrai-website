@@ -1,3 +1,310 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
-<html><body><h1>ConstrAI</h1></body></html>
+
+<Layout title="Home" description="ConstrAI — Smart Construction Malta. Technology-driven construction finishing: waterproofing, tiling, plastering, painting, gypsum.">
+  <Header />
+
+  <!-- Section 1: Hero (100vh, full-screen centered) -->
+  <section style="
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(rgba(10,15,26,0.65), rgba(10,15,26,0.65)),
+                url('/images/home-bg-1.jpg') center/cover no-repeat;
+  ">
+    <div class="scanlines" style="position:absolute;inset:0;pointer-events:none;z-index:1;"></div>
+    <div style="position:relative;z-index:2;max-width:800px;padding:0 1.5rem;">
+      <div style="width:50px;height:3px;background:var(--color-accent);margin:0 auto 1.5rem;"></div>
+      <h1 style="color:#f0f4f8;font-size:clamp(2.25rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.25rem;">
+        Smart Construction<br/>Powered by <span style="color:var(--color-accent);">Intelligence</span>
+      </h1>
+      <p style="color:var(--color-muted);font-size:1.125rem;margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto;">
+        We combine construction expertise with smart technology to deliver faster, safer, and higher-quality results.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact-us/" style="background:#00b4d8;color:#0a0f1a;padding:0.875rem 2rem;border-radius:3px;font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;transition:background 200ms;" onmouseover="this.style.background='#0090aa'" onmouseout="this.style.background='#00b4d8'">Request Consultation</a>
+        <a href="/services/" style="border:1px solid rgba(240,244,248,0.4);color:#f0f4f8;padding:0.875rem 2rem;border-radius:3px;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;transition:border-color 200ms,color 200ms;" onmouseover="this.style.borderColor='#00b4d8';this.style.color='#00b4d8'" onmouseout="this.style.borderColor='rgba(240,244,248,0.4)';this.style.color='#f0f4f8'">Learn More</a>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;">
+      <div style="width:1px;height:40px;background:linear-gradient(#00b4d8,transparent);margin:0 auto;"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: Construction meets Intelligence -->
+  <section class="section" style="background:var(--color-surface-2);">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <p style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">What we do</p>
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;margin-bottom:1.5rem;">Construction meets Intelligence</h2>
+        <p style="color:var(--color-muted);font-style:italic;margin-bottom:1.5rem;line-height:1.7;">
+          At ConstrAI, we are redefining what it means to build in Malta. By integrating cutting-edge AI technology with expert craftsmanship, we deliver construction finishing solutions that go beyond aesthetics — they are engineered for precision, durability, and unmatched quality control.
+        </p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+          {[
+            'Technology-Driven Project Oversight',
+            'Reconceptualized Operational Logistics',
+            'Industry-Standard Quality Control',
+            'AI-Powered Tools & Digitalization',
+          ].map(item => (
+            <li style="display:flex;align-items:center;gap:0.75rem;color:var(--color-text);">
+              <span style="color:var(--color-accent);font-size:1.1rem;">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <h2 style="color:#f0f4f8;font-size:1.5rem;font-weight:700;margin-bottom:0.75rem;">Call us today</h2>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <a href="tel:+35699638741" style="color:var(--color-accent);font-weight:600;font-size:1.1rem;">+356 99 638 741</a>
+          <a href="https://wa.me/35699638741" target="_blank" rel="noopener" style="color:var(--color-muted);font-size:0.9rem;">WhatsApp us →</a>
+        </div>
+      </div>
+      <div>
+        <img src="/images/Gemini_Generated_Image_w3okl2w3okl2w3ok-768x1024.png" alt="ConstrAI construction professional" style="width:100%;border-radius:8px;object-fit:cover;max-height:600px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Why Choose ConstrAI -->
+  <section class="section" style="background:var(--color-bg);">
+    <div class="container">
+      <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;text-align:center;margin-bottom:3rem;">Why Choose ConstrAI</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem;">
+        {[
+          { icon: '⚙', title: 'Technology-Driven', body: 'AI tools and real-time oversight bring construction into the digital age.' },
+          { icon: '🏗', title: 'Professional Execution', body: 'Skilled specialists who take pride in every detail, every time.' },
+          { icon: '🛡', title: 'Safety-Focused', body: 'Strict safety protocols that protect workers, clients, and properties.' },
+          { icon: '🚀', title: 'Future-Ready', body: 'Continuously evolving processes to lead, not follow, industry standards.' },
+        ].map(card => (
+          <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;padding:1.5rem;transition:box-shadow 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.3)'" onmouseout="this.style.boxShadow='none'">
+            <div style="font-size:1.75rem;margin-bottom:0.75rem;">{card.icon}</div>
+            <h3 style="color:#f0f4f8;font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{card.title}</h3>
+            <p style="color:var(--color-muted);font-size:0.875rem;line-height:1.6;">{card.body}</p>
+          </div>
+        ))}
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        {[
+          { img: 'Picture1-1.jpg', title: 'Revolutionized project oversight', body: 'Body-worn cameras and real-time monitoring ensure quality at every stage.' },
+          { img: 'Picture4-1-300x169.jpg', title: 'Reconceptualized logistics', body: 'Smart scheduling and GPS tracking optimize every resource.' },
+          { img: 'Picture3-1.jpg', title: 'Raising Industry Standards', body: 'Daily photo updates and holistic quality checks set a new benchmark.' },
+          { img: 'Picture2-1-300x169.jpg', title: 'Digitalization and automation', body: 'AI-powered quoting and planning tools streamline the full project lifecycle.' },
+        ].map(card => (
+          <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;overflow:hidden;transition:box-shadow 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.3)'" onmouseout="this.style.boxShadow='none'">
+            <img src={`/images/${card.img}`} alt={card.title} style="width:100%;height:160px;object-fit:cover;" />
+            <div style="padding:1rem;">
+              <h3 style="color:#f0f4f8;font-size:0.9rem;font-weight:700;margin-bottom:0.4rem;">{card.title}</h3>
+              <p style="color:var(--color-muted);font-size:0.8rem;line-height:1.5;">{card.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Services Carousel -->
+  <section class="section" style="background:var(--color-surface-2);">
+    <div class="container">
+      <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;text-align:center;margin-bottom:0.75rem;">Our Services</h2>
+      <p style="color:var(--color-muted);text-align:center;max-width:600px;margin:0 auto 2.5rem;">From waterproofing to precision tiling, we deliver expert finishing for every surface.</p>
+      <div style="position:relative;">
+        <div style="overflow:hidden;border-radius:8px;">
+          <div id="carousel-track" style="display:flex;transition:transform 400ms ease;">
+            {[
+              { img: 'IMG_20240804_141254-1-1024x683.jpg', name: 'Liquid Membrane', desc: 'High-performance waterproofing for roofs, terraces, and wet areas.', href: '/lm/' },
+              { img: 'MicrosoftTeams-image-81-1140x445-1-1024x400.jpg', name: 'Floor Tiling', desc: 'Precision installation of ceramic, porcelain, and natural stone tiles.', href: '/floor-tiling/' },
+              { img: 'IMG_20200831_155045-1-1.jpg', name: 'Walls', desc: 'Premium wall tiling in ceramic, porcelain, and natural stone.', href: '/walls/' },
+              { img: 'IMG-20250918-WA0038-2-768x1024.jpg', name: 'Bathrooms', desc: 'Specialized tiling for luxury wet rooms and en-suites.', href: '/bathrooms/' },
+              { img: 'IMG_20240509_143603-1-300x169.jpg', name: 'Internal Plastering', desc: 'High-end interior gypsum and sand-cement plastering.', href: '/internal-plastering/' },
+              { img: 'IMG_20240722_180001.jpg', name: 'External Plastering', desc: "Durable exterior finishes engineered for Malta's climate.", href: '/external-plastering/' },
+              { img: 'IMG_20240722_172415-1.jpg', name: 'Painting', desc: 'Premium interior and exterior painting using high-quality materials.', href: '/internal-external-painting/' },
+              { img: 'IMG-20251108-WA0124.jpg', name: 'Facades', desc: 'High-end exterior cladding and envelope solutions.', href: '/facades/' },
+              { img: 'IMG-20260303-WA0072-1.jpg', name: 'Planters', desc: 'Specialized waterproofing and protective lining for planters.', href: '/planters/' },
+              { img: 'IMG_20210424_115628-scaled.jpg', name: 'Gypsum Partitions', desc: 'Custom gypsum partition systems for clean interior separation.', href: '/gypsum-partitions/' },
+            ].map(slide => (
+              <div class="carousel-slide" style="min-width:33.333%;padding:0 0.75rem;box-sizing:border-box;">
+                <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;overflow:hidden;">
+                  <img src={`/images/${slide.img}`} alt={slide.name} style="width:100%;height:220px;object-fit:cover;" />
+                  <div style="padding:1.25rem;">
+                    <h3 style="color:#f0f4f8;font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{slide.name}</h3>
+                    <p style="color:var(--color-muted);font-size:0.875rem;margin-bottom:1rem;">{slide.desc}</p>
+                    <a href={slide.href} style="color:var(--color-accent);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;">Read More →</a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <button id="carousel-prev" style="position:absolute;top:50%;left:-1.5rem;transform:translateY(-50%);background:var(--color-surface);border:1px solid var(--color-border);color:#f0f4f8;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.25rem;display:flex;align-items:center;justify-content:center;">‹</button>
+        <button id="carousel-next" style="position:absolute;top:50%;right:-1.5rem;transform:translateY(-50%);background:var(--color-surface);border:1px solid var(--color-border);color:#f0f4f8;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.25rem;display:flex;align-items:center;justify-content:center;">›</button>
+      </div>
+      <div id="carousel-dots" style="display:flex;justify-content:center;gap:0.5rem;margin-top:1.5rem;"></div>
+    </div>
+  </section>
+
+  <!-- Section 5: Our Projects preview -->
+  <section style="position:relative;padding:5rem 0;background:linear-gradient(rgba(10,15,26,0.75),rgba(10,15,26,0.75)),url('/images/WhatsApp-Image-2026-03-16-at-11.22.24-2.jpeg') center/cover no-repeat;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;">Our Projects</h2>
+        <a href="/projects/" style="background:#00b4d8;color:#0a0f1a;padding:0.625rem 1.25rem;border-radius:3px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;">View all Projects</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+        {[
+          { title: 'Mdina H.O.C.', location: 'Private Properties', img: '6a12d7d2-4b4b-43f5-8b87-00099aa8c1a9-683x1024.jpg' },
+          { title: 'Maria Rosa Wine Estate', location: 'Commercial', img: '701c3b93-939c-435b-880a-03c4533ab525.jpg' },
+          { title: 'Karrari Showroom', location: 'Commercial', img: 'IMG_20241117_134051-1.jpg' },
+          { title: 'Integra Wellness Centre', location: 'Commercial', img: 'IMG_20260406_110357-1024x768.jpg' },
+          { title: 'Fairdeal Furniture', location: 'Commercial', img: 'IMG_20250417_162131-1-1-e1776079766880.jpg' },
+          { title: 'Luxury Penthouse', location: 'Private Properties', img: 'IMG_20240722_190220-scaled.jpg' },
+        ].map(proj => (
+          <div style="position:relative;overflow:hidden;border-radius:8px;aspect-ratio:4/3;cursor:pointer;" onmouseover="this.querySelector('.proj-overlay').style.opacity='1';this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('.proj-overlay').style.opacity='0';this.querySelector('img').style.transform='scale(1)'">
+            <img src={`/images/${proj.img}`} alt={proj.title} style="width:100%;height:100%;object-fit:cover;transition:transform 400ms;" />
+            <div class="proj-overlay" style="position:absolute;inset:0;background:rgba(10,15,26,0.75);opacity:0;transition:opacity 300ms;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;">
+              <span style="color:#00b4d8;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">{proj.location}</span>
+              <h3 style="color:#f0f4f8;font-size:1rem;font-weight:700;">{proj.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Results in Numbers -->
+  <section id="stats-section" style="position:relative;padding:5rem 0;text-align:center;background:linear-gradient(rgba(10,15,26,0.75),rgba(10,15,26,0.75)),url('/images/tiler-working-renovation-apartment-scaled.jpg') center/cover no-repeat;">
+    <div class="container">
+      <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;margin-bottom:0.75rem;">Our Results in Numbers</h2>
+      <p style="color:var(--color-muted);max-width:500px;margin:0 auto 3rem;">Delivering excellence across Malta — measured in experience, trust, and projects completed.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:700px;margin:0 auto;">
+        {[
+          { label: 'Years of Experience', suffix: '+', target: 10 },
+          { label: 'Satisfied Clients', suffix: '', target: 200 },
+          { label: 'Projects Completed', suffix: '+', target: 500 },
+        ].map(stat => (
+          <div>
+            <div style="color:#00b4d8;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1;">
+              <span class="stat-counter" data-target={stat.target}>0</span>{stat.suffix}
+            </div>
+            <p style="color:var(--color-muted);font-size:0.875rem;margin-top:0.5rem;">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+      <p style="color:var(--color-muted);font-size:0.75rem;margin-top:1.5rem;font-style:italic;">⚠ Placeholder values — confirm with client before launch</p>
+    </div>
+  </section>
+
+  <!-- Section 7: AI Quoting Tool -->
+  <section class="section" style="background:linear-gradient(rgba(10,15,26,0.80),rgba(10,15,26,0.80)),url('/images/abstract-black-blue-marble-textured-background-scaled.jpg') center/cover no-repeat;">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <p style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Coming Soon</p>
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.75rem);font-weight:800;margin-bottom:1.25rem;">AI-Powered Quoting Tool</h2>
+        <p style="color:var(--color-muted);line-height:1.7;">
+          We are developing an intelligent quoting platform that will revolutionize how clients plan and budget their construction projects in Malta. Get accurate, instant estimates powered by AI — coming soon.
+        </p>
+      </div>
+      <div style="text-align:center;">
+        <img src="/images/Slide1-Photoroom.png" alt="AI Quoting Tool preview" style="max-width:100%;border-radius:8px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: CTA Banner -->
+  <CTABanner
+    bgImage="/images/CTA-bg-1.jpg"
+    heading="Ready? Start Your Project Today"
+    buttonText="Request consultation"
+  />
+
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    .container[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .container > div[style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+    .container > div[style*="grid-template-columns:repeat(3"] { grid-template-columns: repeat(2,1fr) !important; }
+    #stats-section .container > div { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 600px) {
+    .carousel-slide { min-width: 100% !important; }
+    .container > div[style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script>
+  // Fade-up on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => fadeObs.observe(el));
+
+  // Stat counters
+  const statsSection = document.getElementById('stats-section');
+  let countersStarted = false;
+  const statObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !countersStarted) {
+      countersStarted = true;
+      document.querySelectorAll('.stat-counter').forEach(el => {
+        const target = parseInt(el.getAttribute('data-target') || '0', 10);
+        const duration = 1500;
+        const start = performance.now();
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = String(Math.floor(progress * target));
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = String(target);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }, { threshold: 0.3 });
+  if (statsSection) statObs.observe(statsSection);
+
+  // Carousel
+  const track = document.getElementById('carousel-track');
+  const dotsContainer = document.getElementById('carousel-dots');
+  const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  const total = slides.length;
+  let perPage = window.innerWidth < 600 ? 1 : 3;
+  let current = 0;
+  let pageCount = Math.ceil(total / perPage);
+
+  for (let i = 0; i < pageCount; i++) {
+    const dot = document.createElement('button');
+    dot.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:' + (i === 0 ? '#00b4d8' : 'rgba(240,244,248,0.3)') + ';transition:background 200ms;';
+    dot.addEventListener('click', () => goTo(i));
+    if (dotsContainer) dotsContainer.appendChild(dot);
+  }
+
+  function updateDots() {
+    if (!dotsContainer) return;
+    dotsContainer.querySelectorAll('button').forEach((d, i) => {
+      d.style.background = i === current ? '#00b4d8' : 'rgba(240,244,248,0.3)';
+    });
+  }
+
+  function goTo(page) {
+    current = (page + pageCount) % pageCount;
+    const slideWidth = 100 / perPage;
+    if (track) track.style.transform = 'translateX(-' + (current * slideWidth * perPage) + '%)';
+    updateDots();
+  }
+
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+  setInterval(() => goTo(current + 1), 4000);
+</script>

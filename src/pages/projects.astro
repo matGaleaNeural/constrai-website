@@ -78,8 +78,8 @@ const galleryImages = [
 
     <section class="section" style="background:var(--color-bg);">
       <div class="container" style="max-width:800px;">
-        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem;">Projects</h2>
-        <p style="color:var(--color-muted);line-height:1.7;">
+        <h2 class="reveal" style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem;">Projects</h2>
+        <p class="reveal d1" style="color:var(--color-muted);line-height:1.7;">
           Every project we take on is an opportunity to demonstrate our commitment to precision and quality. From private residences to large commercial fit-outs, ConstrAI brings the same level of care and expertise to every engagement.
         </p>
       </div>
@@ -88,7 +88,7 @@ const galleryImages = [
     <section style="padding:0 0 5rem;background:var(--color-bg);">
       <div class="container" style="display:flex;flex-direction:column;gap:5rem;">
         {featured.map(proj => (
-          <div style={`display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;${proj.imgLeft ? '' : 'direction:rtl;'}`}>
+          <div class={proj.imgLeft ? 'reveal-left' : 'reveal-right'} style={`display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;${proj.imgLeft ? '' : 'direction:rtl;'}`}>
             <div style="direction:ltr;">
               <img src={`/images/${proj.img}`} alt={proj.name} style="width:100%;border-radius:8px;object-fit:cover;max-height:420px;" />
             </div>

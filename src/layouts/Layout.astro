@@ -24,5 +24,16 @@ const pageTitle = `${title} | ConstrAI — Smart Construction Malta`;
 </head>
 <body>
   <slot />
+  <script>
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .heading-accent').forEach(el => revealObs.observe(el));
+  </script>
 </body>
 </html>

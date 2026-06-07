@@ -23,7 +23,7 @@ const navLinks = [
 
     <nav class="desktop-nav" style="display:flex;align-items:center;gap:2rem;">
       {navLinks.map(link => (
-        <a href={link.href} style="
+        <a href={link.href} class="nav-link" style="
           color: rgba(240,244,248,0.85);
           font-size: 0.875rem;
           font-weight: 500;
@@ -32,7 +32,7 @@ const navLinks = [
           transition: color 200ms;
         " onmouseover="this.style.color='#00b4d8'" onmouseout="this.style.color='rgba(240,244,248,0.85)'">{link.label}</a>
       ))}
-      <a href="/contact-us/" style="
+      <a href="/contact-us/" class="btn-shimmer" style="
         border: 1px solid #00b4d8;
         color: #00b4d8;
         padding: 0.4rem 1rem;
@@ -84,6 +84,20 @@ const navLinks = [
 </nav>
 
 <style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    height: 2px; width: 0;
+    background: #00b4d8;
+    border-radius: 1px;
+    transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  .nav-link:hover::after { width: 100%; }
+
   @media (max-width: 767px) {
     .desktop-nav { display: none !important; }
     #hamburger { display: flex !important; }

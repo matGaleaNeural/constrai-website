@@ -13,10 +13,10 @@ import CTABanner from '../components/CTABanner.astro';
 
     <section class="section" style="background:var(--color-bg);">
       <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
-        <div>
+        <div class="reveal-left">
           <img src="/images/Gemini_Generated_Image_t05aqwt05aqwt05a.png" alt="ConstrAI team" style="width:100%;border-radius:8px;object-fit:cover;" />
         </div>
-        <div>
+        <div class="reveal-right">
           <p style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Who We Are</p>
           <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1.25rem;">Our Story</h2>
           <p style="color:var(--color-muted);line-height:1.7;margin-bottom:1rem;">
@@ -44,15 +44,15 @@ import CTABanner from '../components/CTABanner.astro';
 
     <section class="section" style="background:var(--color-surface-2);">
       <div class="container">
-        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;text-align:center;margin-bottom:2.5rem;">Our Innovations</h2>
+        <h2 class="reveal" style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;text-align:center;margin-bottom:2.5rem;">Our Innovations</h2>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
           {[
             { img: 'body-word-camera-1.png', title: 'Revolutionized project oversight', body: 'Body-worn cameras provide real-time visibility across all active sites, ensuring supervisors can monitor quality and safety without being physically present at every location.' },
             { img: 'Screenshot-2026-04-14-140614-3-1024x576.jpg', title: 'Reconceptualized operational logistics', body: 'Our location and time management system tracks workers, materials, and machinery in real time — eliminating delays and optimizing resource allocation across multiple projects.' },
             { img: 'standard-quality-control-collage-concept-1024x576.jpg', title: 'Raising Industry Standards', body: 'We take a holistic approach to quality: daily photo progress updates, structured checklists, and client-facing transparency reports ensure every project meets our exacting standards.' },
             { img: 'ai-technology-microchip-background-digital-transformation-concept-1024x576.jpg', title: 'Digitalization and automation', body: 'Our AI-powered quoting tool is in active development. Soon, clients will receive instant, accurate project estimates — a first for the Maltese construction market.' },
-          ].map(card => (
-            <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;overflow:hidden;transition:box-shadow 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.25)'" onmouseout="this.style.boxShadow='none'">
+          ].map((card, idx) => (
+            <div class={`card-hover reveal-scale d${idx + 1}`} style="background:var(--color-surface);border-radius:8px;overflow:hidden;">
               <img src={`/images/${card.img}`} alt={card.title} style="width:100%;height:220px;object-fit:cover;" />
               <div style="padding:1.5rem;">
                 <h3 style="color:#f0f4f8;font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{card.title}</h3>

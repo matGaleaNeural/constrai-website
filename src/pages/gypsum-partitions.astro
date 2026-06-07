@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceGallery from '../components/ServiceGallery.astro';
+import CTABanner from '../components/CTABanner.astro';
+const images = [
+  '/images/IMG_20210424_115628-scaled.jpg',
+  '/images/IMG_20240722_190220-scaled.jpg',
+];
+---
+<Layout title="Gypsum Partitions">
+  <Header />
+  <div style="padding-top:64px;">
+    <ServiceHero title="Gypsum Partitions" description="Custom gypsum partition systems designed for clean spatial separation, acoustic control, and seamless integration with interior design." heroImage="/images/IMG_20210424_115628-scaled.jpg" />
+    <ServiceGallery images={images} />
+    <CTABanner heading="READY? Let's Build A Plan Together" />
+  </div>
+  <Footer />
+</Layout>

@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceGallery from '../components/ServiceGallery.astro';
+import CTABanner from '../components/CTABanner.astro';
+const images = [
+  '/images/IMG_20240804_141254-1-1024x683.jpg',
+  '/images/IMG_20240722_190220-scaled.jpg',
+  '/images/IMG_20240722_063716-1024x683.jpg',
+];
+---
+<Layout title="Liquid Membrane">
+  <Header />
+  <div style="padding-top:64px;">
+    <ServiceHero title="Liquid Membrane" description="High-performance waterproofing system applied seamlessly to roofs, terraces, balconies, and wet areas to prevent water ingress and structural damage." heroImage="/images/IMG_20240804_141254-1-1024x683.jpg" heroBg="/images/IMG_20240722_190220-scaled.jpg" />
+    <ServiceGallery images={images} />
+    <CTABanner heading="READY? Let's Build A Plan Together" />
+  </div>
+  <Footer />
+</Layout>

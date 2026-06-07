@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const services = [
+  { name: 'Liquid Membrane', img: 'IMG_20240804_141254-1-1024x683.jpg', href: '/lm/' },
+  { name: 'Floor Tiling', img: 'MicrosoftTeams-image-81-1140x445-1-1024x400.jpg', href: '/floor-tiling/' },
+  { name: 'Walls', img: 'IMG_20200831_155045-1-1.jpg', href: '/walls/' },
+  { name: 'Bathrooms', img: 'IMG-20250918-WA0038-2-768x1024.jpg', href: '/bathrooms/' },
+  { name: 'Internal Plastering', img: 'IMG_20240509_143603-1-300x169.jpg', href: '/internal-plastering/' },
+  { name: 'External Plastering', img: 'IMG_20240722_180001.jpg', href: '/external-plastering/' },
+  { name: 'Internal & External Painting', img: 'IMG_20240722_172415-1.jpg', href: '/internal-external-painting/' },
+  { name: 'Facades', img: 'IMG-20251108-WA0124.jpg', href: '/facades/' },
+  { name: 'Planters', img: 'IMG-20260303-WA0072-1.jpg', href: '/planters/' },
+  { name: 'Gypsum Partitions', img: 'IMG_20210424_115628-scaled.jpg', href: '/gypsum-partitions/' },
+  { name: 'Other Gypsum Solutions', img: 'IMG-20260126-WA0124-2-1024x461.jpg', href: '/other-gypson-solutions/' },
+  { name: 'Floor Screeding', img: 'IMG-20251017-WA0076-1024x768.jpg', href: '/floor-screeding/' },
+];
+
+const specializations = [
+  { icon: '🔑', title: 'Turnkey & Finishing', body: 'End-to-end construction finishing from waterproofing to final paint coat.' },
+  { icon: '📷', title: 'Real-Time Quality Supervision', body: 'Body-worn cameras and live monitoring ensure quality at every stage.' },
+  { icon: '📅', title: 'Precision Logistics & Scheduling', body: 'Smart planning minimizes delays and keeps every project on track.' },
+  { icon: '📸', title: 'Daily Photo Progress Updates', body: 'Clients receive daily photographic reports on project progress.' },
+  { icon: '🤖', title: 'AI-Powered Quoting (Coming Soon)', body: 'Instant, accurate estimates powered by artificial intelligence.' },
+  { icon: '⭐', title: 'Client-First Satisfaction', body: 'We measure success by client outcomes, not just project completion.' },
+];
+---
+
+<Layout title="Services">
+  <Header />
+  <div style="padding-top:64px;">
+    <PageHero title="Services" bgImage="/images/glass-building.jpg" />
+
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container" style="max-width:800px;">
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem;">Our Services</h2>
+        <p style="color:var(--color-muted);line-height:1.7;">
+          ConstrAI offers a comprehensive suite of construction finishing services tailored to residential, commercial, and hospitality projects across Malta. Whether you need a single-service contractor or a full turnkey finishing partner, our experienced team delivers with precision and accountability at every step.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:0 0 5rem;background:var(--color-bg);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+          {services.map(svc => (
+            <a href={svc.href} style="display:block;background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;overflow:hidden;transition:box-shadow 300ms,transform 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.3)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <img src={`/images/${svc.img}`} alt={svc.name} style="width:100%;height:200px;object-fit:cover;" />
+              <div style="padding:1.25rem;display:flex;align-items:center;justify-content:space-between;">
+                <h3 style="color:#f0f4f8;font-size:0.95rem;font-weight:700;">{svc.name}</h3>
+                <span style="color:var(--color-accent);font-size:0.8rem;">Read More →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--color-surface-2);">
+      <div class="container">
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;text-align:center;margin-bottom:2.5rem;">Our Specialization</h2>
+        <p style="color:var(--color-muted);text-align:center;max-width:600px;margin:0 auto 2.5rem;line-height:1.7;">
+          What makes ConstrAI different is not just what we build — it is how we build it. Our processes are engineered for accountability, transparency, and excellence.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+          {specializations.map(spec => (
+            <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;padding:1.5rem;transition:box-shadow 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.25)'" onmouseout="this.style.boxShadow='none'">
+              <div style="font-size:1.75rem;margin-bottom:0.75rem;">{spec.icon}</div>
+              <h3 style="color:#f0f4f8;font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;">{spec.title}</h3>
+              <p style="color:var(--color-muted);font-size:0.85rem;line-height:1.6;">{spec.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTABanner bgImage="/images/shutterstock_2186504051-1.jpg" />
+  </div>
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    .container > div[style*="grid-template-columns:repeat(3"] { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 540px) {
+    .container > div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+    .container > div[style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  }
+</style>

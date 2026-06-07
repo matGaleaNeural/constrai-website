@@ -28,7 +28,7 @@ const { title, description, heroImage, heroBg } = Astro.props;
       alt={title}
       style="max-height:70%;max-width:80%;object-fit:contain;position:relative;z-index:1;"
     />
-    <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;text-align:center;width:100%;padding:0 2rem;">
+    <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;z-index:2;">
       <h1 style="color:#f0f4f8;font-size:clamp(1.75rem,4vw,3rem);font-weight:800;">{title}</h1>
       <p style="color:var(--color-muted);max-width:600px;margin:0.5rem auto 0;">{description}</p>
     </div>

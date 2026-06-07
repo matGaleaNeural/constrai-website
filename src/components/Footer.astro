@@ -1,0 +1,67 @@
+---
+---
+<footer style="background:var(--color-surface);border-top:1px solid var(--color-border);padding:3rem 0 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+
+      <div>
+        <img src="/images/ConstrAI_Logo_Blue-1-150x150.jpg" alt="ConstrAI" style="height:60px;width:auto;margin-bottom:1rem;" />
+        <p style="color:var(--color-muted);font-size:0.875rem;line-height:1.6;">Raising Standards Through Innovation</p>
+      </div>
+
+      <div>
+        <h4 style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;">Our Company</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          {[
+            ['Who We Are', '/about/'],
+            ['About Company', '/about/'],
+            ['Services We Provide', '/services/'],
+            ['What We Have Done', '/projects/'],
+          ].map(([label, href]) => (
+            <li><a href={href} style="color:var(--color-muted);font-size:0.875rem;transition:color 200ms;" onmouseover="this.style.color='#00b4d8'" onmouseout="this.style.color='var(--color-muted)'">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;">Our Services</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          {[
+            ['Liquid Membrane', '/lm/'],
+            ['Floor Tiling', '/floor-tiling/'],
+            ['Bathrooms', '/bathrooms/'],
+            ['External Plastering', '/external-plastering/'],
+            ['More Services →', '/services/'],
+          ].map(([label, href]) => (
+            <li><a href={href} style="color:var(--color-muted);font-size:0.875rem;transition:color 200ms;" onmouseover="this.style.color='#00b4d8'" onmouseout="this.style.color='var(--color-muted)'">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;">Contact Details</h4>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <p style="color:var(--color-muted);font-size:0.875rem;">114, Triq Il-Kanonku Bonnici,<br/>Santa Venera SVR 1072</p>
+          <a href="tel:+35699638741" style="color:var(--color-muted);font-size:0.875rem;" onmouseover="this.style.color='#00b4d8'" onmouseout="this.style.color='var(--color-muted)'">+356 99 638 741</a>
+          <a href="mailto:admin@constrai.com.mt" style="color:var(--color-muted);font-size:0.875rem;" onmouseover="this.style.color='#00b4d8'" onmouseout="this.style.color='var(--color-muted)'">admin@constrai.com.mt</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="border-top:1px solid var(--color-border);margin-top:2.5rem;padding:1.25rem 0;">
+    <div class="container" style="text-align:center;">
+      <p style="color:var(--color-muted);font-size:0.8rem;">Copyright &copy; 2026 ConstrAI.com.mt</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 900px) {
+    footer .container > div { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 540px) {
+    footer .container > div { grid-template-columns: 1fr !important; }
+  }
+</style>

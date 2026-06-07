@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<Layout title="About Us">
+  <Header />
+  <div style="padding-top:64px;">
+    <PageHero title="About Us" bgImage="/images/cranes-construction-site-scaled.jpg" />
+
+    <section class="section" style="background:var(--color-bg);">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div>
+          <img src="/images/Gemini_Generated_Image_t05aqwt05aqwt05a.png" alt="ConstrAI team" style="width:100%;border-radius:8px;object-fit:cover;" />
+        </div>
+        <div>
+          <p style="color:var(--color-accent);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">Who We Are</p>
+          <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;margin-bottom:1.25rem;">Our Story</h2>
+          <p style="color:var(--color-muted);line-height:1.7;margin-bottom:1rem;">
+            ConstrAI was born from a vision to bring the precision of modern technology into the world of construction. Founded in Malta, we have built a reputation for delivering exceptional finishing work — from waterproofing to tiling, plastering to painting — with a relentless focus on quality and innovation.
+          </p>
+          <p style="color:var(--color-muted);line-height:1.7;margin-bottom:2rem;">
+            Our team combines decades of hands-on construction experience with cutting-edge AI tools, creating a unique approach that sets us apart from traditional contractors. We don't just build — we engineer results.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            {[
+              { icon: '🏅', label: 'Professional Specialist' },
+              { icon: '💡', label: 'Brilliant Ideas' },
+              { icon: '🎯', label: 'Precise Builders' },
+              { icon: '🕐', label: '24/7 Assistance' },
+            ].map(pill => (
+              <div style="display:flex;align-items:center;gap:0.5rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:6px;padding:0.625rem 0.875rem;">
+                <span>{pill.icon}</span>
+                <span style="color:var(--color-text);font-size:0.875rem;font-weight:500;">{pill.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--color-surface-2);">
+      <div class="container">
+        <h2 style="color:#f0f4f8;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;text-align:center;margin-bottom:2.5rem;">Our Innovations</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
+          {[
+            { img: 'body-word-camera-1.png', title: 'Revolutionized project oversight', body: 'Body-worn cameras provide real-time visibility across all active sites, ensuring supervisors can monitor quality and safety without being physically present at every location.' },
+            { img: 'Screenshot-2026-04-14-140614-3-1024x576.jpg', title: 'Reconceptualized operational logistics', body: 'Our location and time management system tracks workers, materials, and machinery in real time — eliminating delays and optimizing resource allocation across multiple projects.' },
+            { img: 'standard-quality-control-collage-concept-1024x576.jpg', title: 'Raising Industry Standards', body: 'We take a holistic approach to quality: daily photo progress updates, structured checklists, and client-facing transparency reports ensure every project meets our exacting standards.' },
+            { img: 'ai-technology-microchip-background-digital-transformation-concept-1024x576.jpg', title: 'Digitalization and automation', body: 'Our AI-powered quoting tool is in active development. Soon, clients will receive instant, accurate project estimates — a first for the Maltese construction market.' },
+          ].map(card => (
+            <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;overflow:hidden;transition:box-shadow 300ms;" onmouseover="this.style.boxShadow='0 0 20px rgba(0,180,216,0.25)'" onmouseout="this.style.boxShadow='none'">
+              <img src={`/images/${card.img}`} alt={card.title} style="width:100%;height:220px;object-fit:cover;" />
+              <div style="padding:1.5rem;">
+                <h3 style="color:#f0f4f8;font-size:1rem;font-weight:700;margin-bottom:0.5rem;">{card.title}</h3>
+                <p style="color:var(--color-muted);font-size:0.875rem;line-height:1.6;">{card.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTABanner bgImage="/images/tiling.jpg" />
+  </div>
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    .container[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .container > div[style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  }
+</style>
